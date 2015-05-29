@@ -68,3 +68,4 @@ tramp
 .cask/
 
 build/
+*.sublime-workspace
