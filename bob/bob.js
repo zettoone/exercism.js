@@ -6,22 +6,25 @@
 var Bob = function() {};
 
 Bob.prototype.hey = function(input) {
-  if (!input) {
+
+  // null or whitespace-only input
+  if (!input || /^\s+$/.test(input)) {
     return 'Fine. Be that way!';
   }
 
-  var lastChar = input.slice(-1);
-  if (lastChar === '!') {
-    return 'Whoa, chill out!';
+  // input contains at least one character
+  if (/[a-zA-Z]/.test(input)) {
+    if (input === input.toUpperCase()) {
+      return 'Whoa, chill out!';
+    }
   }
-  if (lastChar === '?') {
-    return 'Sure.'
+
+  // whatever else
+  if (input.slice(-1) === '?') {
+    return 'Sure.';
   }
 
   return 'Whatever.';
-//
-// YOUR CODE GOES HERE
-//
 };
 
 module.exports = Bob;
