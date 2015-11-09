@@ -6,14 +6,14 @@
 var HelloWorld = function() {};
 
 HelloWorld.prototype.hello = function(input) {
-//
-// YOUR CODE GOES HERE
-//
-    if (!input) {
-        return "Hello, world!";
-    } else {
-        return "Hello, " + input + "!";
-    }
+  //
+  // YOUR CODE GOES HERE
+  //
+  if (!input) {
+    return "Hello, world!";
+  } else {
+    return "Hello, " + input + "!";
+  }
 };
 
 module.exports = HelloWorld;

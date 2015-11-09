@@ -1,0 +1,23 @@
+{
+  "name": "exercism.js",
+  "version": "0.0.1",
+  "description": "???",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zettoone/exercism.js.git"
+  },
+  "author": "Stephen Li",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zettoone/exercism.js/issues"
+  },
+  "homepage": "https://github.com/zettoone/exercism.js#readme",
+  "devDependencies": {
+    "eslint": "^1.9.0",
+    "eslint-config-defaults": "^7.1.1"
+  }
+}

@@ -69,3 +69,4 @@ tramp
 
 build/
 *.sublime-workspace
+node_modules/
