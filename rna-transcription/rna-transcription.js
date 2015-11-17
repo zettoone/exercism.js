@@ -2,37 +2,31 @@
 
 let DnaTranscriber = function() {};
 
-function transcribeNucleotide(nucleotide, isDna) {
-  let complement;
-  switch (nucleotide) {
-    case 'G':
-      complement = 'C';
-      break;
-    case 'C':
-      complement = 'G';
-      break;
-    case 'A':
-      complement = isDna ? 'U' : 'T';
-      break;
-    case 'T':
-    case 'U':
-      complement = 'A';
-      break;
-    default:
-      throw new Error('Invalid nucleotide');
-  }
-  return complement;
+function transcribeNucleotide(isDna) {
+  let mapping = {
+    G: 'C',
+    C: 'G',
+    A: isDna ? 'U' : 'T',
+    T: 'A',
+    U: 'A'
+  };
+
+  return (input) => {
+    return mapping[input];
+  };
 }
 
 DnaTranscriber.prototype.toRna = function(dna) {
+  let transcriber = transcribeNucleotide(true);
   return Array.prototype.map.call(dna, (x) => {
-    return transcribeNucleotide(x, true);
+    return transcriber(x);
   }).join('');
 };
 
 DnaTranscriber.prototype.toDna = function(rna) {
+  let transcriber = transcribeNucleotide(false);
   return Array.prototype.map.call(rna, (x) => {
-    return transcribeNucleotide(x, false);
+    return transcriber(x);
   }).join('');
 };
 
