@@ -1,9 +1,8 @@
 'use strict';
-
 let DnaTranscriber = function() {};
 
 function transcribeNucleotide(isDna) {
-  let mapping = {
+  const mapping = {
     G: 'C',
     C: 'G',
     A: isDna ? 'U' : 'T',
@@ -16,18 +15,22 @@ function transcribeNucleotide(isDna) {
   };
 }
 
+const stringMap = (fn) => {
+  return (str) => {
+    return str.split('').map(fn).join('');
+  };
+};
+
 DnaTranscriber.prototype.toRna = function(dna) {
-  let transcriber = transcribeNucleotide(true);
-  return Array.prototype.map.call(dna, (x) => {
-    return transcriber(x);
-  }).join('');
+  return stringMap((x) => {
+    return transcribeNucleotide(true)(x);
+  })(dna);
 };
 
 DnaTranscriber.prototype.toDna = function(rna) {
-  let transcriber = transcribeNucleotide(false);
-  return Array.prototype.map.call(rna, (x) => {
-    return transcriber(x);
-  }).join('');
+  return stringMap((x) => {
+    return transcribeNucleotide(false)(x);
+  })(rna);
 };
 
 module.exports = DnaTranscriber;
