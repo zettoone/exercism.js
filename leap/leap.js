@@ -1,9 +1,10 @@
-var IsLeapYear = function(year) {
-  var has_factor = function(n) {
+'use strict';
+let isLeapYear = function(year) {
+  let hasFactor = function(n) {
     return year % n === 0;
   };
 
-  return has_factor(4) && (!has_factor(100) || has_factor(400));
+  return hasFactor(4) && (!hasFactor(100) || hasFactor(400));
 };
 
-module.exports = IsLeapYear;
+module.exports = isLeapYear;
