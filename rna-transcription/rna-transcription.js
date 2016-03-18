@@ -15,22 +15,24 @@ function transcribeNucleotide(isDna) {
   };
 }
 
-const stringMap = (fn) => {
+function stringMap(fn) {
   return (str) => {
     return str.split('').map(fn).join('');
   };
 };
 
 DnaTranscriber.prototype.toRna = function(dna) {
-  return stringMap((x) => {
+  var transcribeForDna = (x) => {
     return transcribeNucleotide(true)(x);
-  })(dna);
+  };
+  return stringMap(transcribeForDna)(dna);
 };
 
 DnaTranscriber.prototype.toDna = function(rna) {
-  return stringMap((x) => {
+  var transcribeForRna = (x) => {
     return transcribeNucleotide(false)(x);
-  })(rna);
+  };
+  return stringMap(transcribeForRna)(rna);
 };
 
 module.exports = DnaTranscriber;
