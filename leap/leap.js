@@ -1,6 +1,6 @@
 'use strict';
-let isLeapYear = function(year) {
-  let hasFactor = function(n) {
+let isLeapYear = (year) => {
+  let hasFactor = (n) => {
     return year % n === 0;
   };
 
